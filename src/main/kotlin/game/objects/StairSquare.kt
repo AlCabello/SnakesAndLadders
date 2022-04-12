@@ -1,4 +1,4 @@
-package game.model
+package game.objects
 
 /**
  * StairSquare is a object class, son of square.
@@ -9,12 +9,12 @@ package game.model
  * @property[goTo] Indicates the position of the pointed Square.
  * @property[playersIn] Indicates the players inside the Square.
  */
-class StairSquare(val goTo :  List<Int>, playersIn: MutableList<Player> = mutableListOf()):Square(playersIn){
+class StairSquare(val goTo: List<Int>, playersIn: MutableList<Player> = mutableListOf()) : Square(playersIn) {
     /**
      * Move the user to the new position.
      *
      */
-    fun goUp(){
+    fun goUp() {
 
     }
 
