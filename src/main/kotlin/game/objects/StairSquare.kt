@@ -9,15 +9,14 @@ package game.objects
  * @property[goTo] Indicates the position of the pointed Square.
  * @property[playersIn] Indicates the players inside the Square.
  */
-class StairSquare(val goTo: List<Int>, playersIn: MutableList<Player> = mutableListOf()) : Square(playersIn) {
+class StairSquare(goTo: Int, playersIn: MutableList<Player> = mutableListOf()) : Square(goTo, playersIn) {
     /**
      * Move the user to the new position.
      *
      */
-    fun goUp() {
-
+    override fun go() {
+        println("Stair square, you go to ${goTo+1}")
     }
-
     override fun toString(): String {
         return "StairSquare(goTo=$goTo)"
     }

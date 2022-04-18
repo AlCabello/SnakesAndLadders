@@ -9,7 +9,7 @@ fun createGame(): SnakesAndLadders {
     val dice = Dice()
     val listPlayers = countPlayers()
     listPlayers.forEach{
-        board.setPlayerInPositions(listOf(0, 0), it)
+        board.setPlayerInPositions(0, it)
     }
     return SnakesAndLadders(board,dice,listPlayers)
 }
@@ -19,4 +19,5 @@ fun createGame(): SnakesAndLadders {
  */
 fun main() {
     val game : SnakesAndLadders = createGame()
+    println(game.play())
 }

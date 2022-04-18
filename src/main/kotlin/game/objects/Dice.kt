@@ -1,9 +1,20 @@
 package game.objects
 
+import java.util.*
+
 class Dice {
-    fun randomNum(): Int {
+    fun rollDice(player: Player): Int {
+        println("${player.name} is your turn, ready?")
         val number = (1..6).random()
-        return number
+        if (Scanner(System.`in`).next().uppercase() in listOf("Y","YES","READY","S","SI")){
+            println("Great, here is your number $number")
+        }
+        else{
+            println("Don't care, here is your number $number")
+
+        }
+    return 99
+        //return number
     }
 
 }
