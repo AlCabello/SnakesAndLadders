@@ -1,6 +1,9 @@
 package game.objects
 
-class Board(val squares: MutableList<Square> = MutableList(100) { Square() } ) {
+class Board(val squares: MutableList<Square> = MutableList(100) { Square() }) {
+    /**
+     *
+     */
     fun setSnakes() {
         squares[15] = SnakeSquare(5)
         squares[45] = SnakeSquare(25)
@@ -14,6 +17,9 @@ class Board(val squares: MutableList<Square> = MutableList(100) { Square() } ) {
         squares[98] = SnakeSquare(79)
     }
 
+    /**
+     *
+     */
     fun setStairs() {
         squares[1] = StairSquare(37)
         squares[6] = StairSquare(13)
@@ -28,24 +34,41 @@ class Board(val squares: MutableList<Square> = MutableList(100) { Square() } ) {
         squares[86] = StairSquare(93)
     }
 
+    /**
+     *
+     */
     fun setPlayerInPositions(position: Int, player: Player) {
-        println("${player.name} your new position is ${position+1}")
+        println("${player.name} your new position is ${position + 1}")
         squares[position].playersIn.add(player)
     }
 
-    fun chekLimit(movement: Int, position: Int) : Boolean {
-        return position + movement <= 99
+    /**
+     *
+     */
+    fun whereIsPlayer(player: Player): Int {
+        var position = 0
+        for (i in 0..squares.lastIndex) {
+            if (player in squares[i].playersIn)
+                position = i
+        }
+        return position
     }
 
+    /**
+     *
+     */
     fun move(movement: Int, player: Player, position: Int) {
         squares[position].playersIn.remove(player)
-        setPlayerInPositions(movement+position,player)
+        setPlayerInPositions(movement + position, player)
     }
 
+    /**
+     *
+     */
     fun specialSquares(newPosition: Int, player: Player) {
         if (squares[newPosition] is SnakeSquare || squares[newPosition] is StairSquare) {
             squares[newPosition].go()
-            move(squares[newPosition].goTo-newPosition,player,newPosition)
+            move(squares[newPosition].goTo - newPosition, player, newPosition)
         }
     }
 }

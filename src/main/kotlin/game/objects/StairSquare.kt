@@ -15,9 +15,6 @@ class StairSquare(goTo: Int, playersIn: MutableList<Player> = mutableListOf()) :
      *
      */
     override fun go() {
-        println("Stair square, you go to ${goTo+1}")
-    }
-    override fun toString(): String {
-        return "StairSquare(goTo=$goTo)"
+        println("Stair square, you go to ${goTo + 1}")
     }
 }
