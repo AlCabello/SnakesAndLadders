@@ -2,7 +2,11 @@ package game.objects
 
 class Board(val squares: MutableList<Square> = MutableList(100) { Square() }) {
     /**
-     *
+     * The snakes in the real game have random positions, then we need
+     * to put it manually.
+     * This procedure converts the selected squares, in the object
+     * SnakeSquare, with a number inside, this numbers is the number
+     * of the pointed square.
      */
     fun setSnakes() {
         squares[15] = SnakeSquare(5)
@@ -18,7 +22,11 @@ class Board(val squares: MutableList<Square> = MutableList(100) { Square() }) {
     }
 
     /**
-     *
+     * The stairs in the real game have random positions, then we need
+     * to put it manually.
+     * This procedure converts the selected squares, in the object
+     * StairSquare, with a number inside, this numbers is the number
+     * of the pointed square.
      */
     fun setStairs() {
         squares[1] = StairSquare(37)

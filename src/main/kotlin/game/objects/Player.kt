@@ -1,10 +1,8 @@
 package game.objects
 
-class Player(val name: String) {
-    /**
-     *
-     */
-    override fun toString(): String {
-        return "Player(name='$name')"
-    }
-}
+/**
+ * Object Player, contains the name of the Player.
+ *
+ * @property[name] The name of the player.
+ */
+class Player(val name: String)

@@ -4,7 +4,9 @@ import game.objects.Player
 import java.util.*
 
 /**
- *
+ * Create an object Player, the Scanner reads an input and make it
+ * the name of the player.
+ * @return[Player] Object player with the new name inside.
  */
 fun createPlayer(): Player {
     println("Give me the name of the new player.")
@@ -14,7 +16,10 @@ fun createPlayer(): Player {
 }
 
 /**
- *
+ *  Create a list of Players, the size of the list is the
+ *  number of players selected.
+ *  @return [List] The property list repeats (X) times the value inside
+ *  the { }.
  */
 fun playersList(playersCount: Int): List<Player> {
     println("Create the $playersCount players.")
@@ -22,7 +27,10 @@ fun playersList(playersCount: Int): List<Player> {
 }
 
 /**
- *
+ * Ask the user the number of players, if is not in the range of numbers
+ * ask again.
+ * @return [playersList] Execute the procedure playerList(), with
+ * the parameter playersCount
  */
 fun countPlayers(): List<Player> {
     println("How many players will you be? [2/3/4].")
