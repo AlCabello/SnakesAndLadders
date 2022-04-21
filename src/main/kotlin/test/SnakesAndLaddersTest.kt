@@ -9,4 +9,8 @@ internal class SnakesAndLaddersTest {
     @Test
     fun play() {
     }
+
+    @Test
+    fun move() {
+    }
 }

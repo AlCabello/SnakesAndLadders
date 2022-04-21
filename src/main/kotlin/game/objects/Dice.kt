@@ -20,6 +20,7 @@ class Dice {
         println("${player.name} is your turn, roll the dice [PRESS ANY BUTTON]")
         val anyButton = Scanner(System.`in`).next()
         var number = (1..6).random()
+        println("The dice number is $number")
         if (checkLimit(number, position))
             number = 0
 
