@@ -8,6 +8,17 @@ package game.objects
  * @property[playerList] List of Players.
  */
 data class SnakesAndLadders(val board: Board, val dice: Dice, val playerList: List<Player>) {
+
+    /**
+     * We set the snakes in her position, the stairs in her position, and the players in her squares.
+     */
+    fun setDefault(){
+        board.setSnakes()
+        board.setStairs()
+        playerList.forEach {
+            board.setPlayerInPositions(0, it)
+        }
+    }
     /**
      * This procedure moves the selected Player, first we need to
      * see the position of the player in the board, then we call
@@ -23,6 +34,7 @@ data class SnakesAndLadders(val board: Board, val dice: Dice, val playerList: Li
     }
 
     /**
+     * In the first instance, we set the default configuration to the board.
      * The function play is an infinite loop, it only ends when we do
      * the return, inside this loop, we go through the list of players,
      * in every player we do the procedure move, then we check if the
@@ -32,8 +44,11 @@ data class SnakesAndLadders(val board: Board, val dice: Dice, val playerList: Li
      * @return[String] We return the text of the victory.
      */
     fun play(): String {
+        setDefault()
         while (true) {
             playerList.forEach {
+                if (it in board.squares[99].playersIn)
+                    return "The winner is ${it.name}"
                 move(it)
                 if (it in board.squares[99].playersIn)
                     return "The winner is ${it.name}"

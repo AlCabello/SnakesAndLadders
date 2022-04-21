@@ -77,8 +77,22 @@ class Board(val squares: MutableList<Square> = MutableList(100) { Square() }) {
      * setPlayerInPositions.
      */
     fun move(movement: Int, player: Player, position: Int) {
-        squares[position].playersIn.remove(player)
-        setPlayerInPositions(movement + position, player)
+        if (checkLimit(movement, position)){
+            squares[position].playersIn.remove(player)
+            setPlayerInPositions(movement + position, player)
+        }
+    }
+
+    /**
+     * Check if the position of the user, plus the number of movements,
+     * is more than the last position of the board, in this case 99.
+     */
+    fun checkLimit(movement: Int, position: Int): Boolean {
+        if (position + movement > 99) {
+            println("The number is soo big, you are going to stay here.")
+            return false
+        }
+        return true
     }
 
     /**

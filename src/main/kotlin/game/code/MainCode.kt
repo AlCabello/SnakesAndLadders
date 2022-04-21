@@ -1,5 +1,6 @@
 package game.code
 
+import game.objects.Board
 import game.objects.Dice
 import game.objects.SnakesAndLadders
 
@@ -8,12 +9,9 @@ import game.objects.SnakesAndLadders
  * @return[SnakesAndLadders]
  */
 fun createGame(): SnakesAndLadders {
-    val board = createBoard()
+    val board = Board()
     val dice = Dice()
     val listPlayers = countPlayers()
-    listPlayers.forEach {
-        board.setPlayerInPositions(0, it)
-    }
     return SnakesAndLadders(board, dice, listPlayers)
 }
 

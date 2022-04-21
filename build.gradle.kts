@@ -13,12 +13,12 @@ repositories {
 }
 
 dependencies {
-    implementation("org.junit.jupiter:junit-jupiter:5.7.0")
-    testImplementation(kotlin("test"))
+    implementation("org.junit.jupiter:junit-jupiter:5.8.2")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:1.6.20")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
-    implementation("io.ktor:ktor-client-core:1.6.7")
-    implementation("io.ktor:ktor-client-cio:1.6.7")
-    implementation("io.ktor:ktor-client-serialization:1.6.7")
+    implementation("io.ktor:ktor-client-core:2.0.0")
+    implementation("io.ktor:ktor-client-cio:2.0.0")
+    implementation("io.ktor:ktor-client-serialization:2.0.0")
 }
 
 tasks.test {
