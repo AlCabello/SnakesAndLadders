@@ -1,4 +1,5 @@
 package game.objects
+
 /**
  * StairSquare is an object class.
  * In this object we have the properties of a default Square.

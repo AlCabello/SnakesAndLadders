@@ -1,9 +1,13 @@
 package game.objects
 
 /**
+ * SnakesAndLadders is the main game object.
  *
+ * @property[board] The object board.
+ * @property[dice] The object dice.
+ * @property[playerList] List of Players.
  */
-data class SnakesAndLadders(val board: Board, val dice: Dice, val PlayersList: List<Player>) {
+data class SnakesAndLadders(val board: Board, val dice: Dice, val playerList: List<Player>) {
     /**
      * This procedure moves the selected Player, first we need to
      * see the position of the player in the board, then we call
@@ -29,7 +33,7 @@ data class SnakesAndLadders(val board: Board, val dice: Dice, val PlayersList: L
      */
     fun play(): String {
         while (true) {
-            PlayersList.forEach {
+            playerList.forEach {
                 move(it)
                 if (it in board.squares[99].playersIn)
                     return "The winner is ${it.name}"

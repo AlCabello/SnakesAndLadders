@@ -1,4 +1,5 @@
 package game.objects
+
 /**
  * SnakeSquare is an object class, son of square.
  * In this object we have the properties of a normal Square,

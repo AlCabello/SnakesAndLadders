@@ -1,5 +1,11 @@
 package game.objects
 
+/**
+ * The board, inside this object we do the movements of the players across
+ * the board.
+ *
+ * @property[squares] Is a list of 100 squares, 0-99.
+ */
 class Board(val squares: MutableList<Square> = MutableList(100) { Square() }) {
     /**
      * The snakes in the real game have random positions, then we need
@@ -43,7 +49,7 @@ class Board(val squares: MutableList<Square> = MutableList(100) { Square() }) {
     }
 
     /**
-     *
+     * This procedure print the new position and move it to the this.
      */
     fun setPlayerInPositions(position: Int, player: Player) {
         println("${player.name} your new position is ${position + 1}")
@@ -51,7 +57,10 @@ class Board(val squares: MutableList<Square> = MutableList(100) { Square() }) {
     }
 
     /**
+     * This function search the player across the board and return the actual
+     * position.
      *
+     * @return[Int] The position of the user in the board.
      */
     fun whereIsPlayer(player: Player): Int {
         var position = 0
@@ -63,7 +72,9 @@ class Board(val squares: MutableList<Square> = MutableList(100) { Square() }) {
     }
 
     /**
-     *
+     * This procedure is the basic movement of a user, we remove the player of
+     * the last position, and we set it in the new position with the procedure
+     * setPlayerInPositions.
      */
     fun move(movement: Int, player: Player, position: Int) {
         squares[position].playersIn.remove(player)
@@ -71,7 +82,8 @@ class Board(val squares: MutableList<Square> = MutableList(100) { Square() }) {
     }
 
     /**
-     *
+     * This procedure check if the user position is a specialSquare, in this case
+     * move the player to the new required position.
      */
     fun specialSquares(newPosition: Int, player: Player) {
         if (squares[newPosition] is SnakeSquare || squares[newPosition] is StairSquare) {
